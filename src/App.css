@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li, button {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Set default font and background color */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Set default font family */
+  background-color: #f3efe6; /* Set background color */
+  background-image: url(images/bedge-grunge.png); /* Set background image */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Container styles */
+.container {
+  max-width: 800px; /* Limit container width */
+  margin: 50px auto; /* Center container horizontally with 50px top and bottom margin */
+  padding: 20px; /* Add padding inside container */
+  background-color:#b7b9a3; /* Set background color */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+/* Wishlist button styles */
+.wishlist-button {
+  text-align: right; /* Align button to the right */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.wishlist-button button {
+  padding: 10px 20px; /* Add padding to button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.wishlist-button button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Image container styles */
+.image-container {
+  position: relative; /* Set position relative for absolute positioning of buttons */ 
+  margin-bottom: 30px; /* Add bottom margin */
+}
+
+.apartment-image {
+  width: 100%; /* Ensure image fills its container */
+  max-height: 400px; /* Set max height to prevent image from overflowing */
+  object-fit: cover; /* Scale image while maintaining aspect ratio */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.image-buttons {
+  position: absolute; /* Set position absolute for button positioning */ 
+  top: 50%; /* Align buttons vertically centered */
+  transform: translateY(-50%); /* Adjust vertical position */
+  display: flex; /* Use flexbox for button alignment */
+  justify-content: space-between; /* Distribute space between buttons */
+  width: calc(100% - 40px); /* Set width to match image width minus padding */
+  padding: 0 20px; /* Add padding */
+}
+
+.image-buttons button {
+  background-color: transparent; /* Set transparent background */
+  border: none; /* Remove border */
+  color: #fff; /* Set text color */
+  font-size: 24px; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: transform 0.3s ease; /* Add transition effect */
+}
+
+.image-buttons button:hover {
+  transform: scale(1.2); /* Scale button on hover */
+}
+
+/* Description styles */
+.description {
+  padding: 20px; /* Add padding */
+  background-color: #f9f9f9; /* Set background color */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.description h2 {
+  font-size: 24px; /* Set font size */
+  color: #333; /* Set text color */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.description p {
+  font-size: 16px; /* Set font size */
+  color: #666; /* Set text color */
+  line-height: 1.6; /* Set line height */
+  margin-bottom: 15px; /* Add bottom margin */
+}
+
+.description h3 {
+  font-size: 20px; /* Set font size */
+  color: #333; /* Set text color */
+  margin-bottom: 10px; /* Add bottom margin */
+}
+
+.description ul {
+  list-style-type: disc; /* Set list style type */
+  margin-left: 20px; /* Add left margin */
+  margin-bottom: 15px; /* Add bottom margin */
+}
+
+.description ul li {
+  margin-bottom: 5px; /* Add bottom margin */
+}
+
+.description button {
+  margin-top: 20px; /* Add top margin */
+  padding: 10px 20px; /* Add padding */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  background-color: #007bff; /* Set background color */
+  color: #fff; /* Set text color */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.description button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Wishlist message styles */
+.wishlist-message {
+  position: fixed; /* Set position fixed */
+  top: 20px; /* Set top position */
+  right: 20px; /* Set right position */
+  background-color: rgba(0, 123, 255, 0.8); /* Set background color with alpha transparency */
+  color: #fff; /* Set text color */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 4px; /* Add border radius */
+  animation: fadeOut 3s ease; /* Add fade out animation */
+}
+
+/* Tooltip container styles */
+.tooltip {
+  position: relative; /* Set position relative */
+  display: inline-block; /* Display as inline block */
+}
+
+/* Tooltip text styles */
+.tooltip .tooltiptext {
+  visibility: hidden; /* Hide tooltip text by default */
+  width: 200px; /* Set width */
+  background-color: #555; /* Set background color */
+  color: #fff; /* Set text color */
+  text-align: center; /* Align text center */
+  border-radius: 6px; /* Add border radius */
+  padding: 10px; /* Add padding */
+  position: absolute; /* Set position absolute */
+  z-index: 1; /* Set z-index */
+  top: -5px; /* Set top position */
+  left: 110%; /* Set left position */
+  opacity: 0; /* Set opacity to 0 */
+  transition: opacity 0.3s; /* Add transition effect */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible; /* Show tooltip text */
+  opacity: 1; /* Set opacity to 1 */
+}
+
+/* Animation for fading out wishlist message */
+@keyframes fadeOut {
+  0% {
+    opacity: 1; /* Start opacity */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 0; /* End opacity */
   }
 }
