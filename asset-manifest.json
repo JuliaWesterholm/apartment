@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/apartment/static/css/main.812c7f7e.css",
+    "main.js": "/apartment/static/js/main.95315313.js",
+    "static/media/apartment1.jpg": "/apartment/static/media/apartment1.c7f614391cb77d063810.jpg",
+    "static/media/apartment3.jpg": "/apartment/static/media/apartment3.930546c0fe27f85100ad.jpg",
+    "static/media/apartment2.jpg": "/apartment/static/media/apartment2.3708004abcb772cf5690.jpg",
+    "static/media/bedge-grunge.png": "/apartment/static/media/bedge-grunge.b18a6e5e91c7117db492.png",
+    "index.html": "/apartment/index.html",
+    "main.812c7f7e.css.map": "/apartment/static/css/main.812c7f7e.css.map",
+    "main.95315313.js.map": "/apartment/static/js/main.95315313.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.812c7f7e.css",
+    "static/js/main.95315313.js"
+  ]
+}
